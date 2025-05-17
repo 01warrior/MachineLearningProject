@@ -37,5 +37,5 @@ Le modèle de régression logistique a été choisi pour sa simplicité et son e
 3. Exécuter le notebook ou l'application Streamlit
 
 ## Auteur
-[Votre Nom]
+Soumaila SAVADOGO
 Projet réalisé dans le cadre du cours de Machine Learning à Mundiapolis.
