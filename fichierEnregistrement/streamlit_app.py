@@ -14,18 +14,32 @@ st.set_page_config(page_title="Prédiction de Dépression Étudiante", layout="c
 def load_resources():
     base_path = os.path.dirname(__file__)
     model_path = os.path.join(base_path, 'logistic_regression_dep_model.joblib')
-    #model = joblib.load('logistic_regression_dep_model.joblib')
-    scaler = joblib.load('scaler_dep.joblib')
-    label_mappings = joblib.load('label_mappings_dep.joblib')
-    final_training_columns = joblib.load('final_training_columns.joblib')
-    original_cols_for_dummies = joblib.load('original_cols_for_dummies.joblib')
-    cols_to_scale = joblib.load('cols_to_scale.joblib')
-    sleep_mapping = joblib.load('sleep_mapping.joblib')
+    model = joblib.load(model_path) # Décommentez cette ligne et assurez-vous de charger les autres aussi
     
+    # Charger les autres fichiers .joblib de la même manière :
+    scaler_path = os.path.join(base_path, 'scaler_dep.joblib')
+    scaler = joblib.load(scaler_path)
+    
+    label_mappings_path = os.path.join(base_path, 'label_mappings_dep.joblib')
+    label_mappings = joblib.load(label_mappings_path)
+    
+    final_training_columns_path = os.path.join(base_path, 'final_training_columns.joblib')
+    final_training_columns = joblib.load(final_training_columns_path)
+    
+    original_cols_for_dummies_path = os.path.join(base_path, 'original_cols_for_dummies.joblib')
+    original_cols_for_dummies = joblib.load(original_cols_for_dummies_path)
+    
+    cols_to_scale_path = os.path.join(base_path, 'cols_to_scale.joblib')
+    cols_to_scale = joblib.load(cols_to_scale_path)
+    
+    sleep_mapping_path = os.path.join(base_path, 'sleep_mapping.joblib')
+    sleep_mapping = joblib.load(sleep_mapping_path)
+    
+    top_30_cities_path = os.path.join(base_path, 'top_30_cities.joblib')
     try:
-        top_30_cities = joblib.load('top_30_cities.joblib')
+        top_30_cities = joblib.load(top_30_cities_path)
     except FileNotFoundError:
-        st.warning("Fichier 'top_30_cities.joblib' non trouvé. Le traitement de 'City' sera simplifié.")
+        print(f"Attention: Fichier '{top_30_cities_path}' non trouvé.")
         top_30_cities = None 
             
     return model, scaler, label_mappings, final_training_columns, original_cols_for_dummies, cols_to_scale, sleep_mapping, top_30_cities
