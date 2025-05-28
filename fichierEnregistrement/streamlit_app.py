@@ -6,7 +6,7 @@ import os
 
 st.set_page_config(page_title="Prédiction de Dépression Étudiante", layout="centered", initial_sidebar_state="expanded")
 
-st.set_page_config(...)
+#st.set_page_config(...)
 
 # --- 1. Charger les modèles et préprocesseurs qu'on a sauvegardés ---
 @st.cache_resource # Pour la performance,on charge une seule fois et on met en cache
