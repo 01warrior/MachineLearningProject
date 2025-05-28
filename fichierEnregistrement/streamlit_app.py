@@ -2,14 +2,19 @@ import streamlit as st
 import pandas as pd
 import joblib
 import numpy as np
+import os
 
 st.set_page_config(page_title="Prédiction de Dépression Étudiante", layout="centered", initial_sidebar_state="expanded")
+
+st.set_page_config(...)
 
 # --- 1. Charger les modèles et préprocesseurs qu'on a sauvegardés ---
 @st.cache_resource # Pour la performance,on charge une seule fois et on met en cache
 
 def load_resources():
-    model = joblib.load('logistic_regression_dep_model.joblib')
+    base_path = os.path.dirname(__file__)
+    model_path = os.path.join(base_path, 'logistic_regression_dep_model.joblib')
+    #model = joblib.load('logistic_regression_dep_model.joblib')
     scaler = joblib.load('scaler_dep.joblib')
     label_mappings = joblib.load('label_mappings_dep.joblib')
     final_training_columns = joblib.load('final_training_columns.joblib')
