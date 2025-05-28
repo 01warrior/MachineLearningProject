@@ -304,5 +304,3 @@ st.sidebar.info(
     "\n\n**Note:** Ceci est un outil de démonstration et ne doit pas remplacer un diagnostic médical professionnel."
 )
 
-st.sidebar.markdown("---")
-st.sidebar.markdown("Développé par Soumaila SAVAODOGO, Walid Razzouk et Boutaina Er-ragragy")
